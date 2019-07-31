@@ -48,9 +48,13 @@ class MainForm(QDialog):
         contrastText = ''
 
         if contrastValue < 102:
-            contrastText = 'too dark'
+            if (102 - contrastValue) > 10:
+                contrastText = 'way '
+            contrastText = contrastText + 'too dark'
         elif contrastValue > 153:
-            contrastText = 'too bright'
+            if (contrastValue - 153) > 10:
+                contrastText = 'way '
+            contrastText = contrastText + 'too bright'
         else:
             contrastText = 'right'
 
